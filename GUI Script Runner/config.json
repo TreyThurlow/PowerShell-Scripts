@@ -1,0 +1,44 @@
+{
+    "Tabs": [
+        {
+        "Name": "Tab 1",
+        "Buttons": [
+            {
+            "Content": "List Files in C:\\Windows",
+            "ScriptPath": ".\\Scripts\\folderstest.ps1",
+            "ToolTip": "Runs Get-ChildItem on C:\\Windows",
+            "Group": "Group Name 1"
+            },
+            {
+            "Content": "Button 2",
+            "ScriptPath": ".\\Path\\To\\Your\\Script2.ps1",
+            "ToolTip": "Description for Button 2",
+            "Group": "Group Name 1"
+            },
+            {
+            "Content": "Button 3",
+            "ScriptPath": ".\\Path\\To\\Your\\Script3.ps1",
+            "ToolTip": "Description for Button 3. \n\nExample of having multiple rows in a tooltip.",
+            "Group": "Group Name 2"
+            }
+        ]
+        },
+        {
+        "Name": "Tab 2",
+        "Buttons": [
+            {
+            "Content": "Button 4",
+            "ScriptPath": ".\\Path\\To\\Your\\Script4.ps1",
+            "ToolTip": "Description for Button 4",
+            "Group": "Group Name 1"
+            },
+            {
+            "Content": "Button 5",
+            "ScriptPath": ".\\Path\\To\\Your\\Script5.ps1",
+            "ToolTip": "Description for Button 5",
+            "Group": ""
+            }
+        ]
+        }
+    ]
+}
