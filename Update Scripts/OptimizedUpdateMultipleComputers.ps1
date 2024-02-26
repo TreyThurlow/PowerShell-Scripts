@@ -1,3 +1,5 @@
+#THIS SCRIPT IS UNTESTED
+
 #Connect to Active Directory using the command
 Import-Module ActiveDirectory
 
