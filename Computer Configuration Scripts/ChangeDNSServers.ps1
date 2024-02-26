@@ -1,12 +1,14 @@
-#------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------
 #
 # Author: Trey Thurlow
 #
 # This script can be used to change the Primary and Secondary DNS Servers on all Clients.
+# The script was built around managing two different sites with two different file shares.
+# If you are only managing 1 location, the switch command can be removed and the $computers variable can be hard coded.
 # 
 # 
 #
-#------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------
 
 #Variable containing Computer List based on location and computer type.
 
@@ -17,15 +19,15 @@ switch ($Location) {
         $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
-                Write-Host "Setting Variables to RRMC Clients..."
+                Write-Host "Setting Variables to HomeBase Clients..."
                 $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\ClientList.txt"
             }
             ("Member Server") {
-                Write-Host "Setting Variables to RRMC Member Servers..."
+                Write-Host "Setting Variables to HomeBase Member Servers..."
                 $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\MemberServerList.txt"
             }
             ("DC") {
-            Write-Host "Setting Variables to RRMC Domain Controllers..."
+            Write-Host "Setting Variables to HomeBase Domain Controllers..."
             $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\DCServerNames.txt"
             }
         }
@@ -34,20 +36,21 @@ switch ($Location) {
         $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
-                Write-Host "Setting Variables to PNT Clients..."
+                Write-Host "Setting Variables to GSU Clients..."
                 $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\ClientList.txt"
             }
             ("Member Server") {
-                Write-Host "Setting Variables to PNT Member Servers..."
+                Write-Host "Setting Variables to GSU Member Servers..."
                 $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\MemberServerList"
             }
             ("DC") {
-            Write-Host "Setting Variables to PNT Domain Controllers..."
+            Write-Host "Setting Variables to GSU Domain Controllers..."
             $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\DomainControllerList.txt"
             }
         }
     }
 }
+
 
 #This variable stores the IP Addresses that you enter for the DNS servers.
 $NewDNSServerSearchOrder = Read-Host "Type the IP Addresses of the two new DNS Servers with a comma and space separating them (1.1.1.1, 2.2.2.2)"
