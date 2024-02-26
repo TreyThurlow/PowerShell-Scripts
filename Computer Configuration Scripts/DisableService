@@ -9,45 +9,44 @@
 #------------------------------------------------------------------------------------------------------------
 
 #Variable containing Computer List based on location and computer type.
-$Location = Read-Host "Are you located at RRMC or PNT?"
+$Location = Read-Host "Are you located at HomeBase or GSU?"
 
 switch ($Location) {
-    ("RRMC") {
-        $Type = Read-Host "Are you disabling the service on a Client, Member Server, or DC?"
+    ("HomeBase") {
+        $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
-                Write-Host "Setting Variables to RRMC Clients..."
-                $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\ClientList.txt"
+                Write-Host "Setting Variables to HomeBase Clients..."
+                $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\ClientList.txt"
             }
             ("Member Server") {
-                Write-Host "Setting Variables to RRMC Member Servers..."
-                $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\MemberServerList.txt"
+                Write-Host "Setting Variables to HomeBase Member Servers..."
+                $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\MemberServerList.txt"
             }
             ("DC") {
-            Write-Host "Setting Variables to RRMC Domain Controllers..."
-            $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\DCServerNames.txt"
+            Write-Host "Setting Variables to HomeBase Domain Controllers..."
+            $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\DCServerNames.txt"
             }
         }
     }
-    ("PNT") {
-        $Type = Read-Host "Are you disabling the service on a Client, Member Server, or DC?"
+    ("GSU") {
+        $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
-                Write-Host "Setting Variables to PNT Clients..."
-                $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\ClientList.txt"
+                Write-Host "Setting Variables to GSU Clients..."
+                $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\ClientList.txt"
             }
             ("Member Server") {
-                Write-Host "Setting Variables to PNT Member Servers..."
-                $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\MemberServerList"
+                Write-Host "Setting Variables to GSU Member Servers..."
+                $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\MemberServerList"
             }
             ("DC") {
-            Write-Host "Setting Variables to PNT Domain Controllers..."
-            $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\DomainControllerList.txt"
+            Write-Host "Setting Variables to GSU Domain Controllers..."
+            $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\DomainControllerList.txt"
             }
         }
     }
 }
-
 #This variable contents the name of the server that you are wanting to disable.
 $ServiceName = Read-Host "Enter the Service Name that you want to disable."
 #Command to disable the service
