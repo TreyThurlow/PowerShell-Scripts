@@ -9,40 +9,40 @@
 #------------------------------------------------------------------------------------------------------------
 
 #Variable containing Computer List based on location and computer type.
-$Location = Read-Host "Are you located at RRMC or PNT?"
+$Location = Read-Host "Are you located at HomeBase or GSU?"
 
 switch ($Location) {
-    ("RRMC") {
-        $Type = Read-Host "Are you changing the password on a Client, Member Server, or DC?"
+    ("HomeBase") {
+        $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
                 Write-Host "Setting Variables to RRMC Clients..."
-                $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\ClientList.txt"
+                $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\ClientList.txt"
             }
             ("Member Server") {
                 Write-Host "Setting Variables to RRMC Member Servers..."
-                $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\MemberServerList.txt"
+                $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\MemberServerList.txt"
             }
             ("DC") {
             Write-Host "Setting Variables to RRMC Domain Controllers..."
-            $Computers = Get-Content "\\kronos\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\DCServerNames.txt"
+            $Computers = Get-Content "\\NetworkShare\Groups\Windows_Support\1. Knowledge Base\Powershell Scripts\ScriptInput\DCServerNames.txt"
             }
         }
     }
-    ("PNT") {
-        $Type = Read-Host "Are you changing the password on a Client, Member Server, or DC?"
+    ("GSU") {
+        $Type = Read-Host "Are you changing the DNS server on a Client, Member Server, or DC?"
         switch ($Type) {
             ("Client") {
                 Write-Host "Setting Variables to PNT Clients..."
-                $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\ClientList.txt"
+                $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\ClientList.txt"
             }
             ("Member Server") {
                 Write-Host "Setting Variables to PNT Member Servers..."
-                $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\MemberServerList"
+                $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\MemberServerList"
             }
             ("DC") {
             Write-Host "Setting Variables to PNT Domain Controllers..."
-            $Computers = Get-Content "\\furies\_JC331\Scripts\ScriptIndex\DomainControllerList.txt"
+            $Computers = Get-Content "\\Network\Share\Scripts\ScriptIndex\DomainControllerList.txt"
             }
         }
     }
